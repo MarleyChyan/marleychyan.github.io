@@ -7,6 +7,23 @@
     <script src="https://unpkg.com/aframe-event-set-component@5.x.x/dist/aframe-event-set-component.min.js"></script>
   </head>
   <body>
+    <script>
+        AFRAME.registerComponent('hide-on-click', {
+            schema: {
+                target: {
+                    type: 'selector'
+                }
+            },
+            init: function() {
+                var data = this.data;
+                var el = this.el;
+                el.addEventListener('click', function() {
+                    el.setAttribute('visible', false);
+                    data.target.setAttribute('visible', true);
+                });
+            }
+        });
+    </script>
     <a-scene>
         <a-assets>
             <audio id="click-sound" src="https://cdn.aframe.io/360-image-gallery-boilerplate/audio/click.ogg"></audio>
