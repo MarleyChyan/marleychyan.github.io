@@ -46,6 +46,8 @@
           <!-- Link template we will build. -->
         
           <a-entity class="link"
+          id="city"
+          hide-on-click="target:#cubes"
           geometry="primitive: plane; height: 2; width: 2"
           material="shader: flat; src: #city-thumb"
           sound="on: click; src: #click-sound"
@@ -58,6 +60,8 @@
         
       
           <a-entity class="link"
+                    id="cubes"
+                    visible="false"
           geometry="primitive: plane; height: 1; width: 1"
           material="shader: flat; src: #cubes-thumb"
           sound="on: click; src: #click-sound"
