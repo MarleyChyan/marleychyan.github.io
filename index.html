@@ -54,7 +54,7 @@
           event-set__mouseenter="scale: 1.2 1.2 1"
           event-set__mouseleave="scale: 1 1 1"
           event-set__click=" _target: #image-360; _delay: 300; material.src: #city "  
-          ></a-entity>
+          proxy-event="event: click; to: #image-360; as: fade"></a-entity>
         
       
           <a-entity class="link"
@@ -65,16 +65,18 @@
           rotation="0 15 0"
         event-set__mouseenter="scale: 1.2 1.2 1"
         event-set__mouseleave="scale: 1 1 1"
-        event-set__click="_target: #image-360; _delay: 300; material.src: #cubes"></a-entity>
+        event-set__click="_target: #image-360; _delay: 300; material.src: #cubes"
+        proxy-event="event: click; to: #image-360; as: fade"></a-entity>
           
-      		 <a-entity class="link"
+      	  <a-entity class="link"
           geometry="primitive: plane; height: 1; width: 1"
           material="shader: flat; src: #sechelt-thumb"
           sound="on: click; src: #click-sound"
           position="0.5 1.25 -1.5"
         event-set__mouseenter="scale: 1.2 1.2 1"
         event-set__mouseleave="scale: 1 1 1"
-        event-set__click="_target: #image-360; _delay: 300; material.src: #sechelt"></a-entity>
+        event-set__click="_target: #image-360; _delay: 300; material.src: #sechelt"
+        proxy-event="event: click; to: #image-360; as: fade"></a-entity>
           
       	
           <!-- Camera + Cursor. -->
