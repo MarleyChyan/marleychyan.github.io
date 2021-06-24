@@ -24,11 +24,28 @@
             }
         });
     </script>
+  <script>
+        AFRAME.registerComponent('hide-on-click2', {
+            schema: {
+                target: {
+                    type: 'selector'
+                }
+            },
+            init: function() {
+                var data = this.data;
+                var el = this.el;
+                el.addEventListener('click', function() {
+                    el.setAttribute('visible', false);
+                    data.target.setAttribute('visible', true);
+                });
+            }
+        });
+    </script>
     <a-scene>
         <a-assets>
             <audio id="click-sound" src="https://cdn.aframe.io/360-image-gallery-boilerplate/audio/click.ogg"></audio>
         
-            <!-- Images. -->
+              <!-- Images. -->
             <img id="city" src="https://marleychyan.github.io/home1.jpg">
             <img id="city-thumb" src="https://marleychyan.github.io/you2.png">
             <img id="cubes" src="https://cdn.aframe.io/360-image-gallery-boilerplate/img/cubes.jpg">
@@ -47,7 +64,10 @@
         
           <a-entity class="link"
           id="city"
-          hide-on-click="target:#cubes"
+          hide-on-click2="target:#sech"
+          hide-on-click="target:#cube"
+         
+          
           geometry="primitive: plane; height: 2; width: 2"
           material="shader: flat; src: #city-thumb"
           sound="on: click; src: #click-sound"
@@ -60,7 +80,7 @@
         
       
           <a-entity class="link"
-                    id="cubes"
+                    id="cube"
                     visible="false"
           geometry="primitive: plane; height: 1; width: 1"
           material="shader: flat; src: #cubes-thumb"
@@ -73,6 +93,8 @@
         proxy-event="event: click; to: #image-360; as: fade"></a-entity>
           
       	  <a-entity class="link"
+      	    id="sech"
+      	  visible="false"
           geometry="primitive: plane; height: 1; width: 1"
           material="shader: flat; src: #sechelt-thumb"
           sound="on: click; src: #click-sound"
