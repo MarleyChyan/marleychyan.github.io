@@ -24,33 +24,17 @@
             }
         });
     </script>
-  <script>
-        AFRAME.registerComponent('hide-on-click2', {
-            schema: {
-                target: {
-                    type: 'selector'
-                }
-            },
-            init: function() {
-                var data = this.data;
-                var el = this.el;
-                el.addEventListener('click', function() {
-                    el.setAttribute('visible', false);
-                    data.target.setAttribute('visible', true);
-                });
-            }
-        });
-    </script>
+
     <a-scene>
         <a-assets>
             <audio id="click-sound" src="https://cdn.aframe.io/360-image-gallery-boilerplate/audio/click.ogg"></audio>
         
               <!-- Images. -->
             <img id="main" src="https://marleychyan.github.io/home1.jpg">
-            <img id="main-thumb" src="https://marleychyan.github.io/Celina.png">
+            <img id="main-thumb" src="https://marleychyan.github.io/Celina2.png">
             <img id="bed" src="https://marleychyan.github.io/loves.jpg">
-            <img id="bed-thumb" src="https://marleychyan.github.io/you.jpg">
-            <img id="sun" src="https://marleychyan.github.io/sun.jpg">
+            <img id="bed-thumb" src="https://marleychyan.github.io/Celina.png">
+            <img id="sun" src="https://cdn.aframe.io/360-image-gallery-boilerplate/img/sechelt.jpg">
             <img id="sun-thumb" src="https://marleychyan.github.io/me.png">
           </a-assets>
           <a-text font="kelsonsans" value="Ziyi's Visual Reality Home" width="2" position="-1 0.5 -1.5"
@@ -68,11 +52,13 @@
           
           hide-on-click="target:#bed0"
 
-          geometry="primitive: plane; height: 2; width: 2"
+          geometry="primitive: plane; height: 4; width: 2"
           material="shader: flat; src: #main-thumb"
           sound="on: click; src: #click-sound"
-          position="1.5 1.5 -4"
+          position="1.5 0.7 -4"
           rotation="0 0 0"
+            scale=" 1 1 1"
+          
           event-set__mouseenter="scale: 1.2 1.2 1"
           event-set__mouseleave="scale: 1 1 1"
           event-set__click=" _target: #image-360; _delay: 300; material.src: #main "  
@@ -86,22 +72,20 @@
           geometry="primitive: plane; height: 1; width: 1"
           material="shader: flat; src: #bed-thumb"
           sound="on: click; src: #click-sound"
-          position="-4 1.25 -2.5"
-          rotation="0 15 0"
+          position="-4 1.35 -2.7"
+          rotation="0 65 0"
         event-set__mouseenter="scale: 1.2 1.2 1"
         event-set__mouseleave="scale: 1 1 1"
         event-set__click="_target: #image-360; _delay: 300; material.src: #bed"
         proxy-event="event: click; to: #image-360; as: fade"></a-entity>
           
       	  <a-entity class="link"
-      	    id="sun"
-      	      hide-on-click="target:#main0"
-      	    
+      	    id="sun"  
       	  visible="true"
           geometry="primitive: plane; height: 1; width: 1"
           material="shader: flat; src: #sun-thumb"
           sound="on: click; src: #click-sound"
-          position="0.5 1.25 1.5"
+          position="0.5 1.25 2.5"
           rotation="0 180 0"
         event-set__mouseenter="scale: 1.2 1.2 1"
         event-set__mouseleave="scale: 1 1 1"
