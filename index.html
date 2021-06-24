@@ -39,7 +39,9 @@
           <a-text font="kelsonsans" value="Welcome to Sola.pink~" width="6" position="-2.5 0.25 -1.5"
           rotation="0 15 0"></a-text>
           <!-- 360-degree image. -->
-          <a-sky id="image-360" radius="10" src="#city"></a-sky>
+          <a-sky id="image-360" radius="10" src="#city"
+                 animation__fade="property: components.material.material.color; type: color; from: #FFF; to: #000; dur: 300; startEvents: fade"
+  animation__fadeback="property: components.material.material.color; type: color; from: #000; to: #FFF; dur: 300; startEvents: animationcomplete__fade"></a-sky>
         
           <!-- Link template we will build. -->
         
