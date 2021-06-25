@@ -27,7 +27,8 @@
 
     <a-scene>
         <a-assets>
-            <audio id="click-sound" src="https://cdn.aframe.io/360-image-gallery-boilerplate/audio/click.ogg"></audio>
+              <!-- 预加载开门声 -->
+            <audio id="click-sound" src="https://marleychyan.github.io/open.mp3"></audio>
         
               <!-- 预加载图片资产 -->
             <img id="main" src="https://marleychyan.github.io/home1.jpg">
@@ -37,6 +38,7 @@
             <img id="sun" src="https://marleychyan.github.io/sun.jpg">
             <img id="sun-thumb" src="https://marleychyan.github.io/me.png">
           </a-assets>
+            <!-- 显示文字 -->
           <a-text font="kelsonsans" value="Ziyi's Visual Reality Home" width="2" position="-1 0.5 -1.5"
           rotation="0 0 0"></a-text>
           <!-- 360图像"天空"效果及动画资源 -->
@@ -44,7 +46,7 @@
                  animation__fade="property: components.material.material.color; type: color; from: #FFF; to: #000; dur: 300; startEvents: fade"
   animation__fadeback="property: components.material.material.color; type: color; from: #000; to: #FFF; dur: 300; startEvents: animationcomplete__fade"></a-sky>
         
-          <!-- 三个link按钮类：具有独立的位置、显示属性 -->
+          <!-- 三个link按钮类：具有独立的显示、交互属性 -->
           <!-- 光照shader属性设为flat以避免光照影响图片纹理 -->
           <a-entity class="link"
           id="main0"
@@ -57,7 +59,7 @@
           position="1.5 0.7 -4"
           rotation="0 0 0"
           scale=" 1 1 1"
-          
+
           event-set__mouseenter="scale: 1.2 1.2 1"
           event-set__mouseleave="scale: 1 1 1"
           event-set__click=" _target: #image-360; _delay: 300; material.src: #main "  
