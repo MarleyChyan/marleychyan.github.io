@@ -38,6 +38,7 @@
             <img id="bed-thumb" src="https://marleychyan.github.io/Celina.png">
             <img id="sun" src="https://marleychyan.github.io/sun.jpg">
             <img id="sun-thumb" src="https://marleychyan.github.io/me.png">
+            <img id="moon" src="https://marleychyan.github.io/flyme2themoon2.png">
           </a-assets>
             <!-- 显示文字 -->
           <a-text font="kelsonsans" value="Ziyi's Visual Reality Home" width="2" position="-1 0.5 -1.5"
@@ -104,6 +105,7 @@
           
           event-set__mouseenter="scale: 1.2 1.2 1"
           event-set__mouseleave="scale: 1 1 1"
+          event-set__click="_target: #image-360; _delay: 300; material.src: #moon"
           proxy-event="event: click; to: #image-360; as: fade"></a-entity>
       	
       
