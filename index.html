@@ -1,12 +1,12 @@
 <html>
   <head>
-
     <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
     <script src="https://unpkg.com/aframe-template-component@3.x.x/dist/aframe-template-component.min.js"></script>
     <script src="https://unpkg.com/aframe-layout-component@4.x.x/dist/aframe-layout-component.min.js"></script>
     <script src="https://unpkg.com/aframe-event-set-component@5.x.x/dist/aframe-event-set-component.min.js"></script>
   </head>
   <body>
+    <!-- 检测点击click+隐藏this本对象+显示target指示的对象 -->
     <script>
         AFRAME.registerComponent('hide-on-click', {
             schema: {
@@ -29,7 +29,7 @@
         <a-assets>
             <audio id="click-sound" src="https://cdn.aframe.io/360-image-gallery-boilerplate/audio/click.ogg"></audio>
         
-              <!-- Images. -->
+              <!-- 预加载图片资产 -->
             <img id="main" src="https://marleychyan.github.io/home1.jpg">
             <img id="main-thumb" src="https://marleychyan.github.io/Celina2.png">
             <img id="bed" src="https://marleychyan.github.io/loves.jpg">
@@ -39,17 +39,16 @@
           </a-assets>
           <a-text font="kelsonsans" value="Ziyi's Visual Reality Home" width="2" position="-1 0.5 -1.5"
           rotation="0 0 0"></a-text>
-          <!-- 360-degree image. -->
+          <!-- 360图像"天空"效果及动画资源 -->
           <a-sky id="image-360" radius="10" src="#main"
                  animation__fade="property: components.material.material.color; type: color; from: #FFF; to: #000; dur: 300; startEvents: fade"
   animation__fadeback="property: components.material.material.color; type: color; from: #000; to: #FFF; dur: 300; startEvents: animationcomplete__fade"></a-sky>
         
-          <!-- Link template we will build. -->
-        
+          <!-- 三个link按钮类：具有独立的位置、显示属性 -->
+          <!-- 光照shader属性设为flat以避免光照影响图片纹理 -->
           <a-entity class="link"
           id="main0"
-                      visible="false"          
-          
+          visible="false"          
           hide-on-click="target:#bed0"
 
           geometry="primitive: plane; height: 4; width: 2"
@@ -57,43 +56,42 @@
           sound="on: click; src: #click-sound"
           position="1.5 0.7 -4"
           rotation="0 0 0"
-            scale=" 1 1 1"
+          scale=" 1 1 1"
           
           event-set__mouseenter="scale: 1.2 1.2 1"
           event-set__mouseleave="scale: 1 1 1"
           event-set__click=" _target: #image-360; _delay: 300; material.src: #main "  
           proxy-event="event: click; to: #image-360; as: fade"></a-entity>
         
-      
           <a-entity class="link"
-                    id="bed0"
-                    hide-on-click="target:#main0"
-                    visible="true"
+          id="bed0"
+          hide-on-click="target:#main0"
+          visible="true"
           geometry="primitive: plane; height: 1; width: 1"
           material="shader: flat; src: #bed-thumb"
           sound="on: click; src: #click-sound"
           position="-4 1.35 -2.7"
           rotation="0 65 0"
-        event-set__mouseenter="scale: 1.2 1.2 1"
-        event-set__mouseleave="scale: 1 1 1"
-        event-set__click="_target: #image-360; _delay: 300; material.src: #bed"
-        proxy-event="event: click; to: #image-360; as: fade"></a-entity>
+          event-set__mouseenter="scale: 1.2 1.2 1"
+          event-set__mouseleave="scale: 1 1 1"
+          event-set__click="_target: #image-360; _delay: 300; material.src: #bed"
+          proxy-event="event: click; to: #image-360; as: fade"></a-entity>
           
       	  <a-entity class="link"
-      	    id="sun"  
+      	  id="sun"  
       	  visible="true"
           geometry="primitive: plane; height: 1; width: 1"
           material="shader: flat; src: #sun-thumb"
           sound="on: click; src: #click-sound"
           position="0.5 1.25 2.5"
           rotation="0 180 0"
-        event-set__mouseenter="scale: 1.2 1.2 1"
-        event-set__mouseleave="scale: 1 1 1"
-        event-set__click="_target: #image-360; _delay: 300; material.src: #sun"
-        proxy-event="event: click; to: #image-360; as: fade"></a-entity>
+          event-set__mouseenter="scale: 1.2 1.2 1"
+          event-set__mouseleave="scale: 1 1 1"
+          event-set__click="_target: #image-360; _delay: 300; material.src: #sun"
+          proxy-event="event: click; to: #image-360; as: fade"></a-entity>
           
       	
-          <!-- Camera + Cursor. -->
+          <!-- 摄像机 绑定光标及动画 -->
           <a-camera>
             <a-cursor
               id="cursor"
